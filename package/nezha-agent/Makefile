@@ -6,6 +6,9 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/nezhahq/agent/tar.gz/v$(PKG_VERSION)?
+# codeload tarball top-level dir is "agent-$(PKG_VERSION)", not
+# "nezha-agent-$(PKG_VERSION)"; tell the build system to rename it.
+PKG_SOURCE_SUBDIR:=agent-$(PKG_VERSION)
 PKG_HASH:=7be24650557baff43900338685436d321e8ff7c336e3149d127bd14b4c491af7
 
 PKG_LICENSE:=Apache-2.0
