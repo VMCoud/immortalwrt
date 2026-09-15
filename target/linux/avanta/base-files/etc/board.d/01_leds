@@ -1,0 +1,24 @@
+#
+# Copyright (C) 2012-2015 OpenWrt.org
+#
+
+. /lib/functions/uci-defaults.sh
+
+board_config_update
+
+board=$(board_name)
+
+case "$board" in
+hqw,hgg420n)
+	ucidef_set_led_default "power" "power" "hgg420n:green:power" "1"
+	;;
+zte,f460-f660|\
+zte,f460-f660-lp|\
+zte,f420-f620)
+	ucidef_set_led_usbport "usb" "USB" "f460-f660:green:usb" "usb1-port1"
+	;;
+esac
+
+board_config_flush
+
+exit 0
